@@ -14,7 +14,9 @@ const socketToRoom = {};
 
 app.use(cors());
 
-const io = socket(server,{origins: "*"});
+
+// Socket.io integration with express
+const io =socket(server, { serveClient: false });
 
 io.on('connection', socket => {
     socket.on("join room", userDetail => {
